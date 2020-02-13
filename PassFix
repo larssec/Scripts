@@ -1,7 +1,7 @@
 #!/bin/bash
 #  Usage:  To check the Configuration of Password Policy
 #  Author:  Larssec
-#  Last Modified Febuary 11, 2020 at 1035
+#  Last Modified Febuary 12, 2020 at 1035
 #-------------------------------------------------------------
 echo "############################################################
 ###########         Password Change	#############
@@ -34,9 +34,12 @@ echo "#############################################################"
 #1008393	RHEL-07-010120	
 echo "RHEL-07-010120
 --------------------------"
-echo "Old Value "| grep ucredit /etc/security/pwquality.conf 
+#Displays the Old Value
+echo "Old Value " && grep ucredit /etc/security/pwquality.conf 
+#Replaces the Old Value with the New Value
 sed -Ei 's/^(#) (ucredit = ).+$/\2-1/' /etc/security/pwquality.conf 
-echo "New Value "| grep ucredit /etc/security/pwquality.conf 
+#Displays the New Value
+echo "New Value "&& grep ucredit /etc/security/pwquality.conf 
 echo "ucredit should be -1
 "
 
@@ -45,7 +48,12 @@ echo "#############################################################"
 #1008394	RHEL-07-010130	
 echo "RHEL-07-010130
 --------------------------"
-grep lcredit /etc/security/pwquality.conf 
+#Displays the Old Value
+echo "Old Value " && grep lcredit /etc/security/pwquality.conf
+#Replaces the Old Value with the New Value
+sed -Ei 's/^(#) (lcredit = ).+$/\2-1/' /etc/security/pwquality.conf
+#Displays the New Value
+echo "New Value " && grep lcredit /etc/security/pwquality.conf
 echo "lcredit should be -1
 "
 
@@ -54,7 +62,12 @@ echo "#############################################################"
 #1008395	RHEL-07-010140	
 echo "RHEL-07-010140
 --------------------------"
-grep dcredit /etc/security/pwquality.conf
+#Displays the Old Value
+echo "Old Value " && grep dcredit /etc/security/pwquality.conf
+#Replaces the Old Value with the New Value
+sed -Ei 's/^(#) (dcredit = ).+$/\2-1/' /etc/security/pwquality.conf
+#Displays the New Value
+echo "New Value " && grep dcredit /etc/security/pwquality.conf
 echo "dcredit should = -1
 "
 
@@ -63,7 +76,12 @@ echo "#############################################################"
 #1008396	RHEL-07-010150	
 echo "RHEL-07-010150
 --------------------------"
-grep ocredit /etc/security/pwquality.conf
+#Displays the Old Value
+echo "Old Value "  && grep ocredit /etc/security/pwquality.conf
+#Replaces the Old Value with the New Value
+sed -Ei 's/^(#) (ocredit = ).+$/\2-1/' /etc/security/pwquality.conf
+#Displays the New Value
+echo "New Value " &&  grep ocredit /etc/security/pwquality.conf
 echo "ocredit should = -1
 "
 
@@ -72,7 +90,12 @@ echo "#############################################################"
 #1008397	RHEL-07-010160	
 echo "RHEL-07-010160
 --------------------------"
-grep difok /etc/security/pwquality.conf
+#Displays the Old Value
+echo "Old Value "  && grep difok /etc/security/pwquality.conf
+#Replaces the Old Value with the New Value
+sed -Ei 's/^(#) (difok = ).+$/\28/' /etc/security/pwquality.conf
+#Displays the New Value
+echo "New Value " &&  grep difok /etc/security/pwquality.conf
 echo "difok should be = 8
 "
 
@@ -81,7 +104,11 @@ echo "#############################################################"
 #1008398	RHEL-07-010170	
 echo "RHEL-07-010170
 --------------------------"
-grep minclass /etc/security/pwquality.conf
+#Displays the Old Value
+echo "Old Value "  &&  grep minclass /etc/security/pwquality.conf
+sed -Ei 's/^(#) (minclass = ).+$/\24/' /etc/security/pwquality.conf
+#Displays the New Value
+echo "New Value " &&  grep minclass /etc/security/pwquality.conf
 echo "minclass should be = 4
 "
 
@@ -90,7 +117,11 @@ echo "#############################################################"
 #1008399	RHEL-07-010180	
 echo "RHEL-07-010180
 --------------------------"
-grep maxrepeat /etc/security/pwquality.conf
+#Displays the Old Value
+echo "Old Value "  &&  grep maxrepeat /etc/security/pwquality.conf
+sed -Ei 's/^(#) (maxrepeat = ).+$/\22/' /etc/security/pwquality.conf
+#Displays the New Value
+echo "New Value " &&  grep maxrepeat /etc/security/pwquality.conf
 echo "maxrepeat should be = 2
 "
 
@@ -99,7 +130,11 @@ echo "#############################################################"
 #1008400	RHEL-07-010190	
 echo "RHEL-07-010190
 --------------------------"
-grep maxclassrepeat /etc/security/pwquality.conf
+#Displays the Old Value
+echo "Old Value "  &&  grep maxclassrepeat /etc/security/pwquality.conf
+sed -Ei 's/^(#) (maxclassrepeat = ).+$/\24/' /etc/security/pwquality.conf
+#Displays the New Value
+echo "New Value " &&  grep maxclassrepeat /etc/security/pwquality.conf
 echo "maxclassrepeat should be = 4
 "
 
@@ -118,7 +153,11 @@ echo "#############################################################"
 #1008404	RHEL-07-010230	
 echo "RHEL-07-010230
 --------------------------"
-grep -i pass_min_days /etc/login.defs
+#Displays the Old Value
+echo "Old Value "  &&  grep -i pass_min_days /etc/login.defs
+sed -Ei 's/^(#) (maxclassrepeat = ).+$/\21/' /etc/login.defs
+#Displays the New Value
+echo "New Value " &&  grep -i pass_min_days /etc/login.defs
 echo "PASS_MIN_DAYS Should be <= 1
 "
 
@@ -135,6 +174,9 @@ echo "#############################################################"
 #1008406	RHEL-07-010250	
 echo "RHEL-07-010250
 --------------------------"
+##########################################################
+###################HERE#################################
+######################################################
 grep -i pass_max_days /etc/login.defs
 echo "PASS_MAX_DAYS needs to be =60 
 "
